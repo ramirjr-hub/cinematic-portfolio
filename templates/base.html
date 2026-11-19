@@ -116,6 +116,34 @@
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </body>
+
+<!-- LOADING SCREEN -->
+<div id="loading-screen">
+    <div class="loading-panel">
+
+        <div class="loading-circle">
+            <div class="circle-inner">
+                <span>LOADING...</span>
+            </div>
+        </div>
+
+        <div class="loading-progress-wrapper">
+            <div class="loading-progress">
+                <div id="loading-bar"></div>
+            </div>
+
+            <span id="loading-percent">0%</span>
+        </div>
+
+        <p class="loading-message">
+            <span></span>
+            PLEASE WAIT...
+            <span></span>
+        </p>
+
+    </div>
+</div>
+
 </html>
 
 

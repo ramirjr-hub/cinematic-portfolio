@@ -96,3 +96,60 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+
+// =====================================
+// CYBER HUD LOADING SCREEN
+// =====================================
+
+(() => {
+
+    const loadingScreen = document.getElementById("loading-screen");
+    const loadingBar = document.getElementById("loading-bar");
+    const loadingPercent = document.getElementById("loading-percent");
+
+    if (!loadingScreen) return;
+
+    let progress = 0;
+
+    // Simulated loading progress
+    const loadingInterval = setInterval(() => {
+
+        if (progress < 90) {
+            progress += Math.floor(Math.random() * 4) + 1;
+
+            if (progress > 90) {
+                progress = 90;
+            }
+
+            loadingBar.style.width = progress + "%";
+            loadingPercent.textContent = progress + "%";
+        }
+
+    }, 100);
+
+
+    // Wait until the page is fully loaded
+    window.addEventListener("load", () => {
+
+        clearInterval(loadingInterval);
+
+        progress = 100;
+
+        loadingBar.style.width = "100%";
+        loadingPercent.textContent = "100%";
+
+        // Small delay for the visual effect
+        setTimeout(() => {
+
+            loadingScreen.classList.add("hide");
+
+            // Remove loading screen after fade
+            setTimeout(() => {
+                loadingScreen.remove();
+            }, 800);
+
+        }, 500);
+
+    });
+
+})();
