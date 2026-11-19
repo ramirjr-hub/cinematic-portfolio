@@ -1,0 +1,299 @@
+
+/* =========================================
+   CINEMATIC PORTFOLIO
+   ANIMATION SYSTEM
+========================================= */
+
+
+/* =========================================
+   1. INTRO RED LINE
+========================================= */
+
+.intro-line {
+    animation: introLine 1.5s ease forwards;
+}
+
+@keyframes introLine {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        width: min(420px, 75vw);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   2. INTRO TEXT REVEAL
+========================================= */
+
+.intro-content.reveal {
+    animation: introText 1.4s ease forwards;
+}
+
+@keyframes introText {
+    0% {
+        opacity: 0;
+        transform: translateY(35px) scale(0.97);
+        filter: blur(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+
+/* =========================================
+   3. INTRO SCREEN EXIT
+========================================= */
+
+#intro-screen.exit {
+    animation: introExit 1s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes introExit {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.05);
+        visibility: hidden;
+    }
+}
+
+
+/* =========================================
+   4. SCROLL REVEAL
+========================================= */
+
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   5. REVEAL FROM LEFT
+========================================= */
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+
+    transition: all 0.9s ease;
+}
+
+.reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* =========================================
+   6. REVEAL FROM RIGHT
+========================================= */
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+
+    transition: all 0.9s ease;
+}
+
+.reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* =========================================
+   7. HERO IMAGE FLOAT
+========================================= */
+
+.hero-image {
+    animation: imageFloat 6s ease-in-out infinite;
+}
+
+@keyframes imageFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* =========================================
+   8. SCROLL INDICATOR
+========================================= */
+
+.scroll-indicator {
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(7px);
+    }
+}
+
+
+/* =========================================
+   9. RED GLOW EFFECT
+========================================= */
+
+.info-card:hover,
+.education-card:hover,
+.skill-card:hover,
+.project-card:hover {
+    box-shadow:
+        0 10px 40px rgba(255, 30, 66, 0.08);
+}
+
+
+/* =========================================
+   10. BUTTON ANIMATION
+========================================= */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================
+   11. MUSIC SOUND WAVE
+========================================= */
+
+.music-toggle.active #music-icon {
+    animation: soundPulse 0.8s ease-in-out infinite;
+}
+
+@keyframes soundPulse {
+    0%, 100% {
+        transform: scaleY(0.7);
+    }
+
+    50% {
+        transform: scaleY(1.3);
+    }
+}
+
+
+/* =========================================
+   12. NAVIGATION ANIMATION
+========================================= */
+
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--red);
+
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================
+   13. PROJECT IMAGE ANIMATION
+========================================= */
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(11, 16, 27, 0.35)
+    );
+
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.project-card:hover .project-image::after {
+    opacity: 1;
+}
+
+
+/* =========================================
+   14. ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal-on-scroll,
+    .reveal-left,
+    .reveal-right {
+        opacity: 1;
+        transform: none;
+    }
+
+}

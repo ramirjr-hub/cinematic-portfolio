@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Personal resume and professional portfolio.">
+
+    <meta name="theme-color" content="#0B101B">
+
+    <title>{% block title %}Personal Portfolio{% endblock %}</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/animations.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/responsive.css') }}">
+
+</head>
+
+<body>
+
+    <!-- CINEMATIC INTRO -->
+    <div id="intro-screen">
+
+        <div class="intro-line"></div>
+
+        <div class="intro-content">
+            <p class="intro-label">WELCOME TO MY WORLD</p>
+
+            <h1 class="intro-name">
+                YOUR NAME
+            </h1>
+
+            <p class="intro-title">
+                Creative Professional | Developer
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <header class="navbar">
+
+        <a href="#home" class="logo">
+            PORTFOLIO<span>.</span>
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+        <!-- SINGLE MUSIC TOGGLE -->
+        <button id="music-toggle"
+                class="music-toggle"
+                aria-label="Turn background music on"
+                aria-pressed="false">
+
+            <span id="music-icon">♪</span>
+
+        </button>
+
+        <!-- MOBILE MENU -->
+        <button class="menu-toggle"
+                id="menu-toggle"
+                aria-label="Toggle navigation">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+
+    <!-- BACKGROUND MUSIC -->
+    <audio id="background-music"
+           loop
+           preload="none">
+
+        <source
+            src="{{ url_for('static', filename='audio/cinematic-ambient.mp3') }}"
+            type="audio/mpeg">
+
+    </audio>
+
+
+    <!-- MAIN PAGE CONTENT -->
+    {% block content %}{% endblock %}
+
+
+    <!-- JAVASCRIPT -->
+    <script src="{{ url_for('static', filename='js/navigation.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/music.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
+
+
+<button
+    id="back-to-top"
+    class="back-to-top"
+    type="button"
+    aria-label="Back to top"
+>
+    ↑
+</button>

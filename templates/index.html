@@ -1,0 +1,476 @@
+
+{% extends "base.html" %}
+
+{% block title %}Your Name | Personal Portfolio{% endblock %}
+
+{% block content %}
+
+<main>
+
+    <!-- ================= HOME / HERO ================= -->
+    <section id="home" class="hero section">
+
+        <div class="hero-content">
+
+            <p class="section-label">
+                HELLO, I'M
+            </p>
+
+            <h1>
+                YOUR <span>NAME.</span>
+            </h1>
+
+            <h2>
+                Creative Professional & Developer
+            </h2>
+
+            <p class="hero-description">
+                I create meaningful digital experiences through
+                creativity, technology, and innovative thinking.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View My Work
+                </a>
+
+                <a href="{{ url_for('static', filename='resume.pdf') }}"
+                   class="btn btn-outline"
+                   download>
+                    Download Resume
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img
+                src="{{ url_for('static', filename='images/profile.jpg') }}"
+                alt="Professional profile photograph">
+
+        </div>
+
+        <a href="#about" class="scroll-indicator">
+            SCROLL TO EXPLORE ↓
+        </a>
+
+    </section>
+
+
+    <!-- ================= ABOUT ME ================= -->
+    <section id="about" class="about section">
+
+        <div class="section-heading">
+            <p class="section-label">01 / INTRODUCTION</p>
+            <h2>About <span>Me.</span></h2>
+        </div>
+
+        <div class="about-content">
+
+            <div class="about-text">
+
+                <h3>
+                    Turning ideas into meaningful experiences.
+                </h3>
+
+                <p>
+                    I am a passionate and motivated professional
+                    interested in technology, creativity, and
+                    continuous learning.
+                </p>
+
+                <p>
+                    I enjoy exploring new ideas, developing
+                    solutions, and creating projects that combine
+                    functionality with thoughtful design.
+                </p>
+
+                <p>
+                    My goal is to continuously improve my skills
+                    and contribute to meaningful projects.
+                </p>
+
+            </div>
+
+            <div class="about-cards">
+
+                <div class="info-card">
+                    <h3>01+</h3>
+                    <p>Years of Learning</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>05+</h3>
+                    <p>Completed Projects</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>100%</h3>
+                    <p>Commitment to Growth</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SKILLS ================= -->
+    <section id="skills" class="skills section">
+
+        <div class="section-heading">
+            <p class="section-label">02 / EXPERTISE</p>
+            <h2>My <span>Skills.</span></h2>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <h3>Technical Skills</h3>
+
+                <div class="skill-item">
+                    <p>HTML & CSS</p>
+                    <span>85%</span>
+                </div>
+
+                <div class="skill-item">
+                    <p>Python</p>
+                    <span>75%</span>
+                </div>
+
+                <div class="skill-item">
+                    <p>JavaScript</p>
+                    <span>70%</span>
+                </div>
+
+                <div class="skill-item">
+                    <p>UI / UX Design</p>
+                    <span>80%</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+                <h3>Creative Skills</h3>
+
+                <div class="skill-item">
+                    <p>Graphic Design</p>
+                    <span>85%</span>
+                </div>
+
+                <div class="skill-item">
+                    <p>Visual Communication</p>
+                    <span>80%</span>
+                </div>
+
+                <div class="skill-item">
+                    <p>Creative Thinking</p>
+                    <span>90%</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+                <h3>Professional Skills</h3>
+
+                <div class="skill-item">
+                    <p>Communication</p>
+                    <span>85%</span>
+                </div>
+
+                <div class="skill-item">
+                    <p>Problem Solving</p>
+                    <span>80%</span>
+                </div>
+
+                <div class="skill-item">
+                    <p>Team Collaboration</p>
+                    <span>85%</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section id="experience" class="experience section">
+
+        <div class="section-heading">
+            <p class="section-label">03 / CAREER</p>
+            <h2>Experience<span>.</span></h2>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <span class="timeline-date">
+                    2025 – Present
+                </span>
+
+                <h3>Position / Role</h3>
+
+                <h4>Company or Organization</h4>
+
+                <p>
+                    Describe your responsibilities, achievements,
+                    contributions, and professional experience here.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <span class="timeline-date">
+                    2024 – 2025
+                </span>
+
+                <h3>Intern / Trainee</h3>
+
+                <h4>Company or Organization</h4>
+
+                <p>
+                    Describe the skills and experience you gained
+                    during this period.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= EDUCATION ================= -->
+    <section id="education" class="education section">
+
+        <div class="section-heading">
+            <p class="section-label">04 / ACADEMIC BACKGROUND</p>
+            <h2>Education<span>.</span></h2>
+        </div>
+
+        <div class="education-grid">
+
+            <div class="education-card">
+
+                <span>2023 – Present</span>
+
+                <h3>Degree / Academic Program</h3>
+
+                <h4>School or University Name</h4>
+
+                <p>
+                    Add your academic achievements, relevant
+                    coursework, awards, or certifications.
+                </p>
+
+            </div>
+
+
+            <div class="education-card">
+
+                <span>2021 – 2023</span>
+
+                <h3>Senior High School</h3>
+
+                <h4>School Name</h4>
+
+                <p>
+                    Add your strand, academic achievements,
+                    and other relevant information.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects" class="projects section">
+
+        <div class="section-heading">
+            <p class="section-label">05 / SELECTED WORKS</p>
+            <h2>Featured <span>Projects.</span></h2>
+        </div>
+
+        <div class="projects-grid">
+
+
+            <article class="project-card">
+
+                <div class="project-image">
+                    <img
+                        src="{{ url_for('static', filename='images/projects/project-01.jpg') }}"
+                        alt="Project one preview">
+                </div>
+
+                <div class="project-info">
+
+                    <span>01 / WEB DEVELOPMENT</span>
+
+                    <h3>Project One</h3>
+
+                    <p>
+                        A modern digital solution designed to
+                        solve a real-world problem.
+                    </p>
+
+                    <p class="project-tech">
+                        HTML · CSS · JavaScript
+                    </p>
+
+                    <a href="#" class="project-link">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-card">
+
+                <div class="project-image">
+                    <img
+                        src="{{ url_for('static', filename='images/projects/project-02.jpg') }}"
+                        alt="Project two preview">
+                </div>
+
+                <div class="project-info">
+
+                    <span>02 / SOFTWARE DEVELOPMENT</span>
+
+                    <h3>Project Two</h3>
+
+                    <p>
+                        An application focused on functionality,
+                        usability, and efficiency.
+                    </p>
+
+                    <p class="project-tech">
+                        Python · Flask
+                    </p>
+
+                    <a href="#" class="project-link">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-card">
+
+                <div class="project-image">
+                    <img
+                        src="{{ url_for('static', filename='images/projects/project-03.jpg') }}"
+                        alt="Project three preview">
+                </div>
+
+                <div class="project-info">
+
+                    <span>03 / CREATIVE DESIGN</span>
+
+                    <h3>Project Three</h3>
+
+                    <p>
+                        A creative project combining visual
+                        storytelling and modern design.
+                    </p>
+
+                    <p class="project-tech">
+                        UI / UX · Graphic Design
+                    </p>
+
+                    <a href="#" class="project-link">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="contact section">
+
+        <div class="section-heading">
+            <p class="section-label">06 / GET IN TOUCH</p>
+            <h2>Let's Work <span>Together.</span></h2>
+        </div>
+
+        <div class="contact-content">
+
+            <p>
+                Have an opportunity, project, or idea?
+                Let's connect and create something meaningful.
+            </p>
+
+            <a href="mailto:your.email@example.com"
+               class="btn btn-primary">
+                Contact Me
+            </a>
+
+            <div class="contact-details">
+
+                <p>
+                    Email:
+                    <a href="mailto:your.email@example.com">
+                        your.email@example.com
+                    </a>
+                </p>
+
+                <p>
+                    LinkedIn:
+                    <a href="#">
+                        Your LinkedIn Profile
+                    </a>
+                </p>
+
+                <p>
+                    GitHub:
+                    <a href="#">
+                        Your GitHub Profile
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+    <p>
+        © 2026 YOUR NAME. All Rights Reserved.
+    </p>
+
+    <p>
+        Designed with Purpose. Built with Passion.
+    </p>
+
+</footer>
+
+{% endblock %}
