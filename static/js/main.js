@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
 
     // =====================================
@@ -87,69 +86,74 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // =====================================
-    // 5. CONSOLE MESSAGE
+    // 5. CYBER HUD LOADING SCREEN
     // =====================================
-
-    console.log(
-        "%cWelcome to my portfolio!",
-        "color: #FF1E42; font-size: 18px; font-weight: bold;"
-    );
-
-});
-
-// =====================================
-// CYBER HUD LOADING SCREEN
-// =====================================
-
-(() => {
 
     const loadingScreen = document.getElementById("loading-screen");
     const loadingBar = document.getElementById("loading-bar");
     const loadingPercent = document.getElementById("loading-percent");
 
-    if (!loadingScreen) return;
+    if (loadingScreen && loadingBar && loadingPercent) {
 
-    let progress = 0;
+        let progress = 0;
 
-    // Simulated loading progress
-    const loadingInterval = setInterval(() => {
+        const loadingInterval = setInterval(() => {
 
-        if (progress < 90) {
-            progress += Math.floor(Math.random() * 4) + 1;
+            if (progress < 90) {
 
-            if (progress > 90) {
-                progress = 90;
+                progress += Math.floor(Math.random() * 4) + 1;
+
+                progress = Math.min(progress, 90);
+
+                loadingBar.style.width = progress + "%";
+                loadingPercent.textContent = progress + "%";
+
             }
 
-            loadingBar.style.width = progress + "%";
-            loadingPercent.textContent = progress + "%";
+        }, 100);
+
+
+        function finishLoading() {
+
+            clearInterval(loadingInterval);
+
+            progress = 100;
+
+            loadingBar.style.width = "100%";
+            loadingPercent.textContent = "100%";
+
+            setTimeout(() => {
+
+                loadingScreen.classList.add("hide");
+
+                setTimeout(() => {
+                    loadingScreen.remove();
+                }, 800);
+
+            }, 500);
+
         }
 
-    }, 100);
+
+        // Handle normal load and already-loaded pages
+        if (document.readyState === "complete") {
+            finishLoading();
+        } else {
+            window.addEventListener("load", finishLoading, {
+                once: true
+            });
+        }
+
+    }
 
 
-    // Wait until the page is fully loaded
-    window.addEventListener("load", () => {
+    // =====================================
+    // 6. CONSOLE MESSAGE
+    // =====================================
 
-        clearInterval(loadingInterval);
+    console.log(
+        "%cWelcome to my portfolio!",
+        "color: #00ff88; font-size: 18px; font-weight: bold;"
+    );
 
-        progress = 100;
-
-        loadingBar.style.width = "100%";
-        loadingPercent.textContent = "100%";
-
-        // Small delay for the visual effect
-        setTimeout(() => {
-
-            loadingScreen.classList.add("hide");
-
-            // Remove loading screen after fade
-            setTimeout(() => {
-                loadingScreen.remove();
-            }, 800);
-
-        }, 500);
-
-    });
-
-})();
+});
