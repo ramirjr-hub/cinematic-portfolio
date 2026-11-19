@@ -859,3 +859,244 @@ h1, h2, h3, h4 {
     border-color: var(--neon-red);
     color: white;
 }
+
+/* =========================================
+   CYBER HUD LOADING SCREEN
+========================================= */
+
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(rgba(0, 255, 180, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 180, 0.025) 1px, transparent 1px),
+        #031419;
+
+    background-size: 35px 35px;
+
+    overflow: hidden;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+#loading-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* PANEL */
+
+.loading-panel {
+    position: relative;
+
+    width: min(850px, 90%);
+    padding: 70px 50px;
+
+    background: rgba(0, 255, 170, 0.035);
+
+    border: 1px solid rgba(0, 255, 170, 0.3);
+
+    clip-path: polygon(
+        2% 0,
+        96% 4%,
+        100% 15%,
+        98% 95%,
+        4% 100%,
+        0 8%
+    );
+
+    box-shadow:
+        0 0 40px rgba(0, 255, 170, 0.05),
+        inset 0 0 40px rgba(0, 255, 170, 0.03);
+}
+
+
+/* SCANNING CIRCLE */
+
+.loading-circle {
+    width: 220px;
+    height: 220px;
+
+    margin: 0 auto 40px;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(0, 255, 170, 0.15);
+
+    border-top: 3px solid #00ff88;
+    border-right: 3px solid #00ff88;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: loading-spin 2s linear infinite;
+
+    box-shadow:
+        0 0 20px rgba(0, 255, 170, 0.1);
+}
+
+
+.circle-inner {
+    width: 85%;
+    height: 85%;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(0, 255, 170, 0.2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: loading-spin-reverse 4s linear infinite;
+}
+
+
+.circle-inner span {
+    font-family: monospace;
+
+    font-size: clamp(18px, 3vw, 30px);
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    color: #00ff88;
+
+    text-shadow:
+        0 0 10px #00ff88,
+        0 0 25px rgba(0, 255, 136, 0.5);
+}
+
+
+/* PROGRESS BAR */
+
+.loading-progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.loading-progress {
+    flex: 1;
+
+    height: 22px;
+
+    border: 1px solid #00ff88;
+
+    padding: 4px;
+
+    overflow: hidden;
+}
+
+
+#loading-bar {
+    width: 0%;
+    height: 100%;
+
+    background: repeating-linear-gradient(
+        45deg,
+        #00ff88,
+        #00ff88 10px,
+        #00cc77 10px,
+        #00cc77 20px
+    );
+
+    box-shadow: 0 0 15px #00ff88;
+
+    transition: width 0.15s linear;
+}
+
+
+#loading-percent {
+    min-width: 55px;
+
+    font-family: monospace;
+
+    font-size: 24px;
+
+    color: #00ff88;
+}
+
+
+/* PLEASE WAIT TEXT */
+
+.loading-message {
+    margin-top: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+    font-family: monospace;
+
+    letter-spacing: 5px;
+
+    color: #00cc88;
+}
+
+
+.loading-message span {
+    width: 70px;
+    height: 1px;
+
+    background: rgba(0, 255, 170, 0.5);
+}
+
+
+/* ANIMATIONS */
+
+@keyframes loading-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loading-spin-reverse {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .loading-panel {
+        padding: 45px 20px;
+    }
+
+    .loading-circle {
+        width: 160px;
+        height: 160px;
+    }
+
+    .loading-message {
+        gap: 10px;
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+    .loading-message span {
+        width: 30px;
+    }
+
+    #loading-percent {
+        font-size: 18px;
+    }
+
+}
