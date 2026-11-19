@@ -874,17 +874,14 @@ h1, h2, h3, h4 {
     justify-content: center;
 
     background:
-        linear-gradient(rgba(0, 255, 180, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 180, 0.025) 1px, transparent 1px),
-        #031419;
+        linear-gradient(rgba(255, 30, 66, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 30, 66, 0.025) 1px, transparent 1px),
+        #0B101B;
 
     background-size: 35px 35px;
-
     overflow: hidden;
 
-    transition:
-        opacity 0.8s ease,
-        visibility 0.8s ease;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
 #loading-screen.hide {
@@ -893,18 +890,15 @@ h1, h2, h3, h4 {
     pointer-events: none;
 }
 
-
 /* PANEL */
 
 .loading-panel {
     position: relative;
-
     width: min(850px, 90%);
     padding: 70px 50px;
 
-    background: rgba(0, 255, 170, 0.035);
-
-    border: 1px solid rgba(0, 255, 170, 0.3);
+    background: rgba(255, 30, 66, 0.035);
+    border: 1px solid rgba(255, 30, 66, 0.3);
 
     clip-path: polygon(
         2% 0,
@@ -916,25 +910,21 @@ h1, h2, h3, h4 {
     );
 
     box-shadow:
-        0 0 40px rgba(0, 255, 170, 0.05),
-        inset 0 0 40px rgba(0, 255, 170, 0.03);
+        0 0 40px rgba(255, 30, 66, 0.05),
+        inset 0 0 40px rgba(255, 30, 66, 0.03);
 }
-
 
 /* SCANNING CIRCLE */
 
 .loading-circle {
     width: 220px;
     height: 220px;
-
     margin: 0 auto 40px;
 
     border-radius: 50%;
-
-    border: 2px solid rgba(0, 255, 170, 0.15);
-
-    border-top: 3px solid #00ff88;
-    border-right: 3px solid #00ff88;
+    border: 2px solid rgba(255, 30, 66, 0.15);
+    border-top: 3px solid #FF1E42;
+    border-right: 3px solid #FF1E42;
 
     display: flex;
     align-items: center;
@@ -942,18 +932,15 @@ h1, h2, h3, h4 {
 
     animation: loading-spin 2s linear infinite;
 
-    box-shadow:
-        0 0 20px rgba(0, 255, 170, 0.1);
+    box-shadow: 0 0 20px rgba(255, 30, 66, 0.1);
 }
-
 
 .circle-inner {
     width: 85%;
     height: 85%;
 
     border-radius: 50%;
-
-    border: 1px solid rgba(0, 255, 170, 0.2);
+    border: 1px solid rgba(255, 30, 66, 0.2);
 
     display: flex;
     align-items: center;
@@ -962,23 +949,18 @@ h1, h2, h3, h4 {
     animation: loading-spin-reverse 4s linear infinite;
 }
 
-
 .circle-inner span {
     font-family: monospace;
-
     font-size: clamp(18px, 3vw, 30px);
-
     font-weight: bold;
-
     letter-spacing: 4px;
 
-    color: #00ff88;
+    color: #FF1E42;
 
     text-shadow:
-        0 0 10px #00ff88,
-        0 0 25px rgba(0, 255, 136, 0.5);
+        0 0 10px #FF1E42,
+        0 0 25px rgba(255, 30, 66, 0.5);
 }
-
 
 /* PROGRESS BAR */
 
@@ -988,19 +970,14 @@ h1, h2, h3, h4 {
     gap: 20px;
 }
 
-
 .loading-progress {
     flex: 1;
-
     height: 22px;
 
-    border: 1px solid #00ff88;
-
+    border: 1px solid #FF1E42;
     padding: 4px;
-
     overflow: hidden;
 }
-
 
 #loading-bar {
     width: 0%;
@@ -1008,28 +985,22 @@ h1, h2, h3, h4 {
 
     background: repeating-linear-gradient(
         45deg,
-        #00ff88,
-        #00ff88 10px,
-        #00cc77 10px,
-        #00cc77 20px
+        #FF1E42,
+        #FF1E42 10px,
+        #B81535 10px,
+        #B81535 20px
     );
 
-    box-shadow: 0 0 15px #00ff88;
-
+    box-shadow: 0 0 15px #FF1E42;
     transition: width 0.15s linear;
 }
 
-
 #loading-percent {
     min-width: 55px;
-
     font-family: monospace;
-
     font-size: 24px;
-
-    color: #00ff88;
+    color: #FF1E42;
 }
-
 
 /* PLEASE WAIT TEXT */
 
@@ -1042,20 +1013,15 @@ h1, h2, h3, h4 {
     gap: 25px;
 
     font-family: monospace;
-
     letter-spacing: 5px;
-
-    color: #00cc88;
+    color: #FF1E42;
 }
-
 
 .loading-message span {
     width: 70px;
     height: 1px;
-
-    background: rgba(0, 255, 170, 0.5);
+    background: rgba(255, 30, 66, 0.5);
 }
-
 
 /* ANIMATIONS */
 
@@ -1070,7 +1036,6 @@ h1, h2, h3, h4 {
         transform: rotate(-360deg);
     }
 }
-
 
 /* MOBILE */
 
@@ -1098,5 +1063,4 @@ h1, h2, h3, h4 {
     #loading-percent {
         font-size: 18px;
     }
-
 }
