@@ -86,38 +86,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // =====================================
-    // 5. CYBER HUD LOADING SCREEN
-    // =====================================
+// 5. CYBER HUD LOADING SCREEN
+// =====================================
 
-    const loadingScreen = document.getElementById("loading-screen");
-    const loadingBar = document.getElementById("loading-bar");
-    const loadingPercent = document.getElementById("loading-percent");
+const loadingScreen = document.getElementById("loading-screen");
+const loadingBar = document.getElementById("loading-bar");
+const loadingPercent = document.getElementById("loading-percent");
 
-    if (loadingScreen && loadingBar && loadingPercent) {
+if (loadingScreen && loadingBar && loadingPercent) {
 
-        let progress = 0;
+    let progress = 0;
+    let pageLoaded = false;
 
-        const loadingInterval = setInterval(() => {
+    const MIN_LOADING_TIME = 4000; // 4 seconds
+    const startTime = Date.now();
 
-            if (progress < 90) {
+    const loadingInterval = setInterval(() => {
 
-                progress += Math.floor(Math.random() * 4) + 1;
+        if (progress < 95) {
+            progress += 0.5;
 
-                progress = Math.min(progress, 90);
+            loadingBar.style.width = progress + "%";
+            loadingPercent.textContent =
+                Math.floor(progress) + "%";
+        }
 
-                loadingBar.style.width = progress + "%";
-                loadingPercent.textContent = progress + "%";
+        checkFinish();
 
-            }
-
-        }, 100);
+    }, 100);
 
 
-        function finishLoading() {
+    function checkFinish() {
+
+        const elapsed = Date.now() - startTime;
+
+        if (pageLoaded && elapsed >= MIN_LOADING_TIME) {
 
             clearInterval(loadingInterval);
-
-            progress = 100;
 
             loadingBar.style.width = "100%";
             loadingPercent.textContent = "100%";
@@ -130,21 +135,27 @@ document.addEventListener("DOMContentLoaded", () => {
                     loadingScreen.remove();
                 }, 800);
 
-            }, 500);
+            }, 600);
 
-        }
-
-
-        // Handle normal load and already-loaded pages
-        if (document.readyState === "complete") {
-            finishLoading();
-        } else {
-            window.addEventListener("load", finishLoading, {
-                once: true
-            });
         }
 
     }
+
+
+    function onPageLoaded() {
+        pageLoaded = true;
+        checkFinish();
+    }
+
+    if (document.readyState === "complete") {
+        onPageLoaded();
+    } else {
+        window.addEventListener("load", onPageLoaded, {
+            once: true
+        });
+    }
+
+}
 
 
     // =====================================
